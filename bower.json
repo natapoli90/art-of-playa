@@ -1,0 +1,21 @@
+{
+  "name": "art-of-playa",
+  "version": "0.0.0",
+  "homepage": "https://github.com/natapoli90/art-of-playa",
+  "authors": [
+    "natapoli90"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "~2.2.2",
+    "bootstrap": "~3.3.6",
+    "handlebars": "~4.0.5"
+  }
+}

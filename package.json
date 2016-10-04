@@ -1,0 +1,25 @@
+{
+  "name": "art-of-playa",
+  "version": "1.0.0",
+  "description": "This app introduces the amazing art installations from Burning Man festival",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:natapoli90/art-of-playa.git"
+  },
+  "author": "natapoli90",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natapoli90/art-of-playa/issues"
+  },
+  "homepage": "https://github.com/natapoli90/art-of-playa#readme",
+  "dependencies": {
+    "bower": "^1.7.8",
+    "express": "^4.13.3"
+  }
+}
