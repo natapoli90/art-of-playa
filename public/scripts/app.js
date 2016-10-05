@@ -7,7 +7,7 @@
 
 
 /* hard-coded data! */
-var SampleArts =[];
+var sampleArts =[];
 sampleArts.push({
               image: '/images/1.jpg',
               info: 'A 1/3 scale replica of an American Frigate from the late 18th century.',
@@ -33,8 +33,10 @@ $(document).ready(function() {
 
 
 
-// this function takes a single album and renders it to the page
 function renderArt(art) {
   console.log('rendering art:', art);
-
+  var artHtml = $('#arts-template').html();
+  var artsTemplate = Handlebars.compile(artHtml);
+  var html = artsTemplate(art);
+  $('#arts').prepend(html);
 }
