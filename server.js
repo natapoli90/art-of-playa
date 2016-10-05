@@ -13,6 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // We're placing these under /vendor to differentiate them from our own assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
+// set 'html' as the engine, using ejs's renderFile function
+var ejs = require('ejs');
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
+
 var controllers = require('./controllers');
 
 
@@ -33,14 +38,20 @@ app.get('/', function homepage (req, res) {
  * JSON API Endpoints
  */
 
-app.get('/api', controllers.api.index);
-app.get('/api/arts', controllers.arts.index);
-app.post('/api/arts', controllers.arts.create);
-app.delete('/api/arts/:artId', controllers.arts.destroy);
-app.put('/api/arts/:artId', controllers.arts.update);
+ app.get('/api/arts', controllers.arts.index);
+ // app.get('/api/arts/:artId', controllers.arts.show);
+ app.post('/api/arts', controllers.arts.create);
+ app.delete('/api/arts/:artId', controllers.arts.destroy);
+ app.put('/api/arts/:artId', controllers.arts.update);
 
 
+app.get('/templates/:name', controllers.api.templates);
 
+// ALL OTHER ROUTES (ANGULAR HANDLES)
+// redirect all other paths to index
+app.get('*', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 /**********
  * SERVER *
  **********/
