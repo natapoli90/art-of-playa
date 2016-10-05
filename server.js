@@ -35,6 +35,8 @@ app.get('/', function homepage (req, res) {
 
 app.get('/api', controllers.api.index);
 app.get('/api/arts', controllers.arts.index);
+app.post('/api/arts', controllers.arts.create);
+
 
 
 /**********

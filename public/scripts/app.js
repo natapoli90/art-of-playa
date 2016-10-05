@@ -6,24 +6,6 @@
  */
 
 
-/* hard-coded data! */
-var sampleArts =[];
-sampleArts.push({
-              image: '/images/1.jpg',
-              info: 'A 1/3 scale replica of an American Frigate from the late 18th century.',
-              year: '2016',
-            });
-sampleArts.push({
-            image: '/images/2.jpg',
-            info: 'Wreckage International creation - The Lost Tea Party.',
-            year: '2016',
-          });
-sampleArts.push({
-              image: '/images/3.jpg',
-              info: 'A tribute to Dali.',
-              year: '2016',
-            });
-
 
 $(document).ready(function() {
   console.log('app.js loaded!');
@@ -34,6 +16,18 @@ $(document).ready(function() {
       renderArt(art);
     });
   });
+
+  $('#art-form form').on('submit', function(e) {
+      e.preventDefault();
+      var formData = $(this).serialize();
+      console.log('formData', formData);
+      $.post('/api/arts', formData, function(art) {
+        console.log('art after POST', art);
+        renderArt(art);  //render the server's response
+      });
+      $(this).trigger("reset");
+    });
+
 });
 
 
