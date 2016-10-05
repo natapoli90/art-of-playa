@@ -23,12 +23,11 @@ function ArtsIndexController ($http) {
       url: '/api/arts',
       data: vm.newArt,
     }).then(function successCallback(response) {
-
+      vm.arts.push(response.data);
+      vm.newArt = {};
     }, function errorCallback(response) {
       console.log('There was an error posting the data', response);
     });
-    vm.newArt.$setPristine();
-vm.newArt.$setUntouched();
   };
 
   vm.editArt = function (art) {
