@@ -48,6 +48,16 @@
     });
   };
 
-
+  vm.editArt = function (art) {
+    $http({
+      method: 'PUT',
+      url: '/api/arts/'+art._id,
+      data: art
+    }).then(function successCallback(json) {
+      // don't need to do anything!
+    }, function errorCallback(response) {
+      console.log('There was an error editing the data', response);
+    });
+  };
 
    }
