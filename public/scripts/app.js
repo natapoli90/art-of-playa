@@ -27,6 +27,13 @@ sampleArts.push({
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+
+
+  $.get('/api/arts').success(function (arts) {
+    arts.forEach(function(art) {
+      renderArt(art);
+    });
+  });
 });
 
 

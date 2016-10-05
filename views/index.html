@@ -34,12 +34,9 @@
       </div>
       <!-- arts! -->
       <div id='arts'>
-
-
-
-
+<script id="arts-template" type="text/x-handlebars-template">
           <!-- one art -->
-          <div class="row art">
+          <div class="row art" data-art-id='{{_id}}'>
 
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
@@ -49,19 +46,23 @@
                 <!-- begin art internal row -->
                   <div class='row'>
                     <div class="col-md-3 col-xs-12 thumbnail art-art">
-                      <img src="images/800x800.png" alt="art image">
+                      {{#if image}}
+                       <img src="{{image}}" alt="art image">
+                     {{else}}
+                       <img src="images/800x800.png" alt="art image">
+                     {{/if}}
                     </div>
 
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Comment:</h4>
-                          <span>The art installation</span>
+                          <span class='art-info'>{{info}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Year:</h4>
-                          <span>2016</span>
+                          <span class='art-year'>{{year}}</span>
                         </li>
 
 
@@ -71,6 +72,10 @@
                   </div>
 
                   <div class='panel-footer'>
+
+                    <button class='btn btn-danger delete-art'>Delete Art</button>
+                    <button class='btn btn-info edit-art'>Edit Art</button>
+                    <button class='btn btn-success save-art hidden'>Save Changes</button>
                   </div>
 
                 </div>
