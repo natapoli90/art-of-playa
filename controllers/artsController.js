@@ -30,12 +30,25 @@ function destroy(req, res) {
   });
 }
 
+function update(req, res) {
+  console.log('updating with data', req.body);
+  db.Art.findById(req.params.artId, function(err, foundArt) {
+    if(err) { console.log('artsController.update error', err); }
+    foundArt.info = req.body.info;
+    foundArt.year = req.body.year;
+    foundArt.save(function(err, savedArt) {
+      if(err) { console.log('saving altered art failed'); }
+      res.json(savedArt);
+    });
+});
+}
+
 
 // export public methods here
 module.exports = {
   index: index,
   create: create,
   // show: show,
-  destroy: destroy
-  // update: update
+  destroy: destroy,
+  update: update
 };
