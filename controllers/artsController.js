@@ -19,11 +19,23 @@ function create(req, res) {
   });
 }
 
+function destroy(req, res) {
+  var artId = req.params.artId;
+  console.log("DESTROYING Art...");
+  db.Art.findOneAndRemove({ _id: artId }, function(err, foundArt){
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+
+    console.log("DESTROYED Art SUCCESS: " , foundArt);
+    res.json(foundArt);
+  });
+}
+
+
 // export public methods here
 module.exports = {
   index: index,
-  create: create
+  create: create,
   // show: show,
-  // destroy: destroy,
+  destroy: destroy
   // update: update
 };

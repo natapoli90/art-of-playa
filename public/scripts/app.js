@@ -28,6 +28,9 @@ $(document).ready(function() {
       $(this).trigger("reset");
     });
 
+    $('#arts').on('click', '.delete-art', handleDeleteArtClick);
+
+
 });
 
 
@@ -40,4 +43,25 @@ function renderArt(art) {
   var artsTemplate = Handlebars.compile(artHtml);
   var html = artsTemplate(art);
   $('#arts').prepend(html);
+}
+
+// when a delete button for an album is clicked
+function handleDeleteArtClick(e) {
+  console.log("DELETE CALLED");
+  var artId = $(this).parents('.art').data('art-id');
+  console.log('someone wants to delete art id=' + artId );
+  $.ajax({
+    url: '/api/arts/' + artId,
+    method: 'DELETE',
+    success: handleDeleteArtSuccess
+  });
+}
+
+
+function handleDeleteArtSuccess(art) {
+  var deletedArt = art;
+  console.log('removing the following art from the page:', deletedArt);
+  var divToRemove = 'div[data-art-id=' + deletedArt._id + ']';
+  console.log(divToRemove);
+  $(divToRemove).remove();
 }
