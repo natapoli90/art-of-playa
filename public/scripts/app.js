@@ -36,5 +36,18 @@
          });
        };
 
+       vm.deleteArt = function (art) {
+    $http({
+      method: 'DELETE',
+      url: '/api/arts/'+ art._id
+    }).then(function successCallback(json) {
+      var index = vm.arts.indexOf(art);
+      vm.arts.splice(index,1);
+    }, function errorCallback(response) {
+      console.log('There was an error deleting the data', response);
+    });
+  };
+
+
 
    }
