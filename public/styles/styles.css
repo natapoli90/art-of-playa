@@ -1,8 +1,16 @@
+body {
+  background-color: white;
+  color: black;
+}
+
 .jumbotron {
   background-image: url(/images/0.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  color: #EEE;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 .jumbotron .container {
   height: 350px;
@@ -12,4 +20,21 @@
   display: inline-block;
   vertical-align: baseline;
   margin-right: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+h4 {
+  text-align: center;
+}
+
+.list-group-item, .panel, .thumbnail {
+  background-color: #edefef;
+  border: none;
+}
+
+.buttons {
+  float:right;
 }

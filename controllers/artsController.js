@@ -10,6 +10,14 @@ function index(req, res) {
   });
 }
 
+function show(req, res) {
+  db.Art.findById(req.params.artId, function(err, foundArt) {
+    if(err) { console.log('artsController.show error', err); }
+    console.log('artsController.show responding with', foundArt);
+    res.json(foundArt);
+  });
+}
+
 function create(req, res) {
   console.log('body', req.body);
   db.Art.create(req.body, function(err, art) {
@@ -48,7 +56,7 @@ function update(req, res) {
 module.exports = {
   index: index,
   create: create,
-  // show: show,
+  show: show,
   destroy: destroy,
   update: update
 };

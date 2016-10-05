@@ -39,7 +39,7 @@ app.get('/', function homepage (req, res) {
  */
 app.get('/api', controllers.api.index);
  app.get('/api/arts', controllers.arts.index);
- // app.get('/api/arts/:artId', controllers.arts.show);
+app.get('/api/arts/:artId', controllers.arts.show);
  app.post('/api/arts', controllers.arts.create);
  app.delete('/api/arts/:artId', controllers.arts.destroy);
  app.put('/api/arts/:artId', controllers.arts.update);
