@@ -8,5 +8,4 @@ var ArtSchema = new Schema({
 });
 
 var Art = mongoose.model('Art', ArtSchema);
-
 module.exports = Art;

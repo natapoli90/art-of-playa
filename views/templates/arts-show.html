@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class='row'>
+                <div class="col-xs-12 thumbnail">
+                  <img ng-src="{{artsShowCtrl.art.image}}">
+                </div>
+                <div class="col-xs-12">
+                  <ul class="">
+                    <li class="list-group-item">
+                      <span>{{artsShowCtrl.art.info}}</span>
+                    </li>
+                    <li class="list-group-item">
+                      <p class='inline-header'>Year:</p>
+                      <span>{{artsShowCtrl.art.year}}</span>
+                      <div class="buttons">
+                        <button class='btn btn-primary' href="#" onClick="history.go(-1)">BACK</button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
