@@ -1,4 +1,4 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/art-of-playa");
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/personal-api");
 
 module.exports.Art = require('./art');
