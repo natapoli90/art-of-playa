@@ -1,89 +1,69 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-
       <form class="form-horizontal" ng-submit="artsIndexCtrl.createArt()">
         <fieldset>
-
-          <!-- Form Name -->
-          <h4>Add new art installation</h4>
-
-          <!-- Text input-->
+          <h2>Add new art installation</h2>
           <div class="form-group">
             <p class="col-md-4 control-label">Image</p>
             <div class="col-md-4">
-            <input id="image" ng-model="artsIndexCtrl.newArt.image" type="url" class="form-control input-md">
+              <input id="image" ng-model="artsIndexCtrl.newArt.image" type="url" class="form-control input-md">
             </div>
           </div>
-
-          <!-- Text input-->
           <div class="form-group">
             <p class="col-md-4 control-label">Comment</p>
             <div class="col-md-4">
-            <input ng-model="artsIndexCtrl.newArt.info" type="text" class="form-control input-md">
+              <input ng-model="artsIndexCtrl.newArt.info" type="text" class="form-control input-md">
             </div>
           </div>
-
-          <!-- Text input-->
           <div class="form-group">
             <p class="col-md-4 control-label">Year</p>
             <div class="col-md-4">
-            <input ng-model="artsIndexCtrl.newArt.year" type="text" class="form-control input-md">
-            <h4><button class="btn btn-success">SUBMIT</button></h4>
+              <input ng-model="artsIndexCtrl.newArt.year" type="text" class="form-control input-md">
+              <h2><button class="btn btn-success">SUBMIT</button></h2>
             </div>
           </div>
-
-<h4>What are you looking for?</h4>
-
-          <!-- Search input-->
+          <h2>What are you looking for?</h2>
           <div class="form-group">
             <p class="col-md-4 control-label">Search</p>
             <div class="col-md-4">
-            <input type="text" class="form-control input-md" ng-model="searchText">
+              <input type="text" class="form-control input-md" ng-model="searchText">
             </div>
           </div>
-
         </fieldset>
       </form>
     </div>
   </div>
 
-
-
   <div ng-repeat="art in artsIndexCtrl.arts | orderBy: '-year' | filter: searchText" class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
         <div class="panel-body">
-
           <div class='row'>
             <div class="col-xs-12 thumbnail">
               <a ng-href="{{art._id}}"><img ng-src="{{art.image}}"></a>
             </div>
-
             <div class="col-xs-12">
               <ul>
                 <li class="list-group-item">
                   <span ng-hide="editing">{{art.info}}</span>
                   <input ng-show="editing" ng-model="art.info" type="text" class="form-control input-md">
                 </li>
-
                 <li class="list-group-item">
                   <p class='inline-header'>Year:</p>
                   <span ng-hide="editing">{{art.year}}</span>
                   <input ng-show="editing" ng-model="art.year" type="text" class="form-control input-md">
-<div class="buttons">
-
-                  <button class='btn btn-info' ng-hide="editing" ng-click="editing=true">EDIT</button>
-                  <button class='btn btn-success' ng-show="editing" ng-click="artsIndexCtrl.editArt(art); editing=false">SAVE</button>
-<button class='btn btn-danger' ng-click="artsIndexCtrl.deleteArt(art)">DELETE</button>
+                  <div class="buttons">
+                    <button class='btn btn-info' ng-hide="editing" ng-click="editing=true">EDIT</button>
+                    <button class='btn btn-success' ng-show="editing" ng-click="artsIndexCtrl.editArt(art); editing=false">SAVE</button>
+                    <button class='btn btn-danger' ng-click="artsIndexCtrl.deleteArt(art)">DELETE</button>
                   </div>
                 </li>
-
-
-
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

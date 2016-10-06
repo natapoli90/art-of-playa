@@ -7,7 +7,6 @@ ArtsShowController.$inject = ['$http', '$routeParams'];
 function ArtsShowController ($http, $routeParams) {
   var vm = this;
 
-
   $http({
     method: 'GET',
     url: '/api/arts/'+$routeParams.id
@@ -16,5 +15,4 @@ function ArtsShowController ($http, $routeParams) {
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   });
-
 }
